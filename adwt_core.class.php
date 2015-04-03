@@ -10,9 +10,9 @@ class adwt_Core{
    function __construct(){
 	   global $DOCUMENT_ROOT;
 	   // Set paths to adwt's  classes & libs
-	   $this->adwt_path = $DOCUMENT_ROOT."/adwt";
+	   $this->adwt_path = $DOCUMENT_ROOT."/php-adwt-netcat5_lib";
 	   $this->adwt_path_classes = $this->adwt_path."/classes";
-	   $this->adwt_path_local_libs = "/adwt/libs";
+	   $this->adwt_path_local_libs = "/php-adwt-netcat5_lib"; 
 	   $this->get_all_available_classes();			  
    }
      
