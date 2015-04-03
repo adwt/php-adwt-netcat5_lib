@@ -27,7 +27,7 @@ class adwt_Geo extends adwt_Core{
    
    public function api_yandex_map(){
 	  global $DOCUMENT_ROOT; 
-	  include $DOCUMENT_ROOT."/adwt/php_libs/php-yandex-geo-master/autoload.php"; 
+	  include $DOCUMENT_ROOT."/php-adwt-netcat5_lib/php_libs/php-yandex-geo-master/autoload.php"; 
 	 // new \Yandex\Geo\Api();
 	  
 	  return new \Yandex\Geo\Api();  
