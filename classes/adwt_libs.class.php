@@ -1,7 +1,7 @@
 <?php
 class adwt_Libs extends adwt_Core{
    public $loaded_libs = array();
-   protected $adwt_path_local_libs ='/adwt/libs';
+   protected $adwt_path_local_libs ='/php-adwt-netcat5_lib/libs';
    protected $libs = array(
       'chosen' => array(
 	     'last_stable_version' => '1.3.0',
