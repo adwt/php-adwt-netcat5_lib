@@ -6,6 +6,7 @@ class adwt_Geo extends adwt_Core{
    protected $provider = 'yandex';
    
    public function __construct($provider=''){ 
+     parent::__construct(); 
      if(!$this->api){ 
        switch($provider){ 
 	     case 'yandex' :		 
@@ -26,10 +27,8 @@ class adwt_Geo extends adwt_Core{
    }
    
    public function api_yandex_map(){
-	  global $DOCUMENT_ROOT; 
-	  include $DOCUMENT_ROOT."/php-adwt-netcat5_lib/php_libs/php-yandex-geo-master/autoload.php"; 
-	 // new \Yandex\Geo\Api();
-	  
+	  $adwt_path = $this->adwt_path;
+	  include $adwt_path."/php_libs/php-yandex-geo-master/autoload.php";
 	  return new \Yandex\Geo\Api();  
    }
    // Получение единичных координат по адресу объекта

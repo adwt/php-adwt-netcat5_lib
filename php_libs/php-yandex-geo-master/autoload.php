@@ -6,19 +6,18 @@
  */
 function __dm_autoload_geo( $name )
 {
-	global $DOCUMENT_ROOT;
+
 	$map = array (
-  'Yandex\\Geo\\Api' => $DOCUMENT_ROOT.'/adwt/php_libs/php-yandex-geo-master/source/Yandex/Geo/Api.php',
-  'Yandex\\Geo\\Exception' =>  $DOCUMENT_ROOT.'/adwt/php_libs/php-yandex-geo-master/source/Yandex/Geo/Exception.php',
-  'Yandex\\Geo\\Exception\\CurlError' =>  $DOCUMENT_ROOT.'/adwt/php_libs/php-yandex-geo-master/source/Yandex/Geo/Exception/CurlError.php',
-  'Yandex\\Geo\\Exception\\ServerError' =>  $DOCUMENT_ROOT.'/adwt/php_libs/php-yandex-geo-master/source/Yandex/Geo/Exception/ServerError.php',
-  'Yandex\\Geo\\GeoObject' =>  $DOCUMENT_ROOT.'/adwt/php_libs/php-yandex-geo-master/source/Yandex/Geo/GeoObject.php',
-  'Yandex\\Geo\\Response' =>  $DOCUMENT_ROOT.'/adwt/php_libs/php-yandex-geo-master/source/Yandex/Geo/Response.php',
+  'Yandex\\Geo\\Api' => dirname(__FILE__).'/source/Yandex/Geo/Api.php',
+  'Yandex\\Geo\\Exception' =>  dirname(__FILE__).'/source/Yandex/Geo/Exception.php',
+  'Yandex\\Geo\\Exception\\CurlError' =>  dirname(__FILE__).'/source/Yandex/Geo/Exception/CurlError.php',
+  'Yandex\\Geo\\Exception\\ServerError' =>  dirname(__FILE__).'/source/Yandex/Geo/Exception/ServerError.php',
+  'Yandex\\Geo\\GeoObject' =>  dirname(__FILE__).'/source/Yandex/Geo/GeoObject.php',
+  'Yandex\\Geo\\Response' =>  dirname(__FILE__).'/source/Yandex/Geo/Response.php',
 );
 	if ( isset( $map[ $name ] ) )
 	{
-		//echo $map[ $name ];
-		require $map[ $name ];
+		require_once $map[ $name ];
 	}
 }
 spl_autoload_register( '__dm_autoload_geo' );

@@ -3,17 +3,14 @@
 class adwt_Core{ 
    protected $adwt_path = "";
    protected $adwt_path_classes = "";
-   //public $adwt_path_local_libs = "";
-   private $loaded_classes = array();
-   private $all_classes = array();
+   protected $adwt_path_local_libs = "";
    //static $debug;
    function __construct(){
-	   global $DOCUMENT_ROOT;
 	   // Set paths to adwt's  classes & libs
-	   $this->adwt_path = $DOCUMENT_ROOT."/php-adwt-netcat5_lib";
+	   global $DOCUMENT_ROOT;
+	   $this->adwt_path = dirname(__FILE__);
 	   $this->adwt_path_classes = $this->adwt_path."/classes";
-	   $this->adwt_path_local_libs = "/php-adwt-netcat5_lib"; 
-	   $this->get_all_available_classes();			  
+	   $this->adwt_path_local_libs = str_replace($DOCUMENT_ROOT,"",$this->adwt_path)."/libs"; 			  
    }
      
    protected function read_all_files_from_dir_to_array($dir){
@@ -29,6 +26,7 @@ class adwt_Core{
    }
    
    protected function include_class($obj_name){
+       $this->get_all_available_classes();
 	   if(isset($this->all_classes[$obj_name])){	 	  
 		  include_once($this->adwt_path_classes."/".$this->all_classes[$obj_name]);
 		  $cls_name = "adwt_".ucfirst($obj_name);
@@ -85,5 +83,8 @@ class adwt_Core{
 	   return $this->loaded_classes;
    }
    
+   public function get_adwt_path(){
+       return $this->adwt_path;
+   }
    
 }
