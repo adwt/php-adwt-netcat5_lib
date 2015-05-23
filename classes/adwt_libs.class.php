@@ -17,36 +17,36 @@ class adwt_Libs extends adwt_Core{
 		  )
 	   ),
 	   'bootstrap' => array(
-	     'last_stable_version' => '3.3.2',
-	     '3.3.2' => array(
+	     'last_stable_version' => '3.3.4',
+	     '3.3.4' => array(
 		    'local' => array(
 			    'css' => 'css/bootstrap.min.css', 'js' => 'js/bootstrap.min.js'
 			 ),
 			 'cdn' => array(
-			    'css' => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css',
-				'js'  => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
+			    'css' => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css',
+				'js'  => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'
 			 )
 		  )
 	   ),
 	   'bootstrap__js' => array(
-	     'last_stable_version' => '3.3.2',
-	     '3.3.2' => array(
+	     'last_stable_version' => '3.3.4',
+	     '3.3.4' => array(
 		    'local' => array(
 			    'js' => 'js/bootstrap.min.js'
 			 ),
 			 'cdn' => array(
-				'js'  => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
+				'js'  => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'
 			 )
 		  )
 	   ),  
 	   'bootstrap__css' => array(
-	     'last_stable_version' => '3.3.2',
-	     '3.3.2' => array(
+	     'last_stable_version' => '3.3.4',
+	     '3.3.4' => array(
 		    'local' => array(
 			    'css' => 'css/bootstrap.min.css'
 			 ),
 			 'cdn' => array(
-			    'css' => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'
+			    'css' => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'
 			 )
 		  )
 	   ),	    
