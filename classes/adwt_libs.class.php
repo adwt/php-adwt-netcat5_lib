@@ -8,6 +8,14 @@ class adwt_Libs extends adwt_Core{
    public $loaded_libs = array();
    //protected $adwt_path_local_libs ='/php-adwt-netcat5_lib/libs';
    protected $libs = array(
+       'purl' => array(
+	     'last_stable_version' => '2.3.1',
+	     '2.3.1' => array(
+		    'local' => array(
+			    'js' => 'purl.js'
+			 )
+		  )
+	   ),
       'chosen' => array(
 	     'last_stable_version' => '1.3.0',
 	     '1.3.0' => array(

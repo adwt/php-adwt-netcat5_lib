@@ -35,6 +35,7 @@ class adwt_Core{
               throw new Exception(__CLASS__."::".__FUNCTION__.": Unable load adwt-extended class \"" . $cls_name . "\"!");
           }else{
 			  $this->loaded_classes[] = $obj_name;
+			  if($this->$obj_name->parent_object == 'required'){ $this->$obj_name->parent_object = &$this; }
 		  } 
 	   }
    }
@@ -86,5 +87,14 @@ class adwt_Core{
    public function get_adwt_path(){
        return $this->adwt_path;
    }
-   
+   public static function get_object(){
+        static $storage; 
+        // check cache 
+        if (!isset($storage)) { 
+            // init object 
+            $storage = new self(); 
+        } 
+        // return object 
+        return is_object($storage) ? $storage : false; 
+   }
 }
