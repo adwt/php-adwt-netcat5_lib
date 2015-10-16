@@ -14,6 +14,7 @@ class adwt_Form extends adwt_Core{
    public $css_class_left_col='col-lg-4 col-md-4 col-sm-12 col-xs-12';
    public $css_class_right_col='col-lg-8 col-md-8 col-sm-12 col-xs-12';
    static $submit_button_name = '';
+   public $submit_button_class = 'btn btn-block btn-success btn-lg';
    protected $users_css='';
    protected $users_jscript='';
    public $css;
@@ -91,7 +92,7 @@ class adwt_Form extends adwt_Core{
 	  }else{
 		  $form_id = "AdminForm__".$this->sub."-".$this->cc."-".$this->class_id."_".$this->mode."";
 		  
-		  $this->css[] =  "form.nc_form{ padding:20px; background-color:#f6f6f6; border-radius:7px;}";
+		  //$this->css[] =  "form.nc_form{ padding:20px; background-color:#f6f6f6; border-radius:7px;}";
 		   
 		  /*$html .="
 		    <style>
@@ -144,7 +145,7 @@ class adwt_Form extends adwt_Core{
        }
 	   
 	   if(!$inside_admin){
-	       return "<input type=\"submit\" class=\"btn btn-block btn-success btn-lg\" value=\"".$this->submit_button_name."\" >";
+	       return "<input type=\"submit\" class=\"".$this->submit_button_class."\" value=\"".$this->submit_button_name."\" >";
 	   }else{
 		   return '';   
 	   }
@@ -195,7 +196,12 @@ class adwt_Form extends adwt_Core{
 		 </div>
 		 "; 
 	   }
-	   $html .="<div ".($inside_admin ? "style='background-color:lightblue; margin-top:15px; padding:15px;'": "class=\"alert alert-info\"").">".NETCAT_MODERATION_INFO_REQFIELDS."</div>".
+	   $html .="
+	   $empty_col
+	   $field_wrapper_begin
+	     <div ".($inside_admin ? "style='background-color:lightblue; margin-top:15px; padding:15px;'": "class=\"row alert alert-info\"").">".NETCAT_MODERATION_INFO_REQFIELDS."</div>
+	   $field_wrapper_end 
+		 ".
 	   "<div class=\"form-group\">".
 	   $empty_col.$field_wrapper_begin.$this->get_submit_button().$field_wrapper_end.
 	   "</div>
