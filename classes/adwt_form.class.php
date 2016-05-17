@@ -100,7 +100,33 @@ class adwt_Form extends adwt_Core{
 			</style>";		  
 			*/
 	  }
+          $this->jscript[] = "
+			     jQuery('ul.dropdown-menu.adwt a').click(function(){
+					 var obj_parent_input_group =  jQuery(this).parents('div.input-group'); 
+					 obj_parent_input_group.children('input.form-control').val((jQuery(this).attr('title') ? jQuery(this).attr('title') : jQuery(this).html()));
+					 jQuery(this).parents('ul.dropdown-menu').hide('fast');
+				  });
+			  
+			  ";
+			  
+	  if($inside_admin){
+				  $this->css[] = "
+				  form.nc_form  .input-group{ white-space: nowrap !important; position:relative; }
+				  form.nc_form  .input-group ul.dropdown-menu{ z-index:999; width:auto; height: auto; overflow-y: scroll; border: solid 1px #dadada; display:none; position:absolute; left:0px; top: 35px; background:#fff; margin:0;padding:10px 0; }
+                  form.nc_form  .input-group ul.dropdown-menu li{ display:block; margin:0; padding: 5px 20px;}
+				  form.nc_form  .input-group-btn{ display:inline; width:25px;}
+				  form.nc_form  /*.input-group*/ input.form-control{ width:90% !important; } 
+				  "; 
+				  $this->jscript[] = "
+				  jQuery('button.dropdown-toggle').unbind('click');
+				  jQuery('button.dropdown-toggle').click(function(){
+					     var obj_parent_input_group = jQuery(this).parent('div.input-group-btn');
+						
+						 obj_parent_input_group.children('ul.dropdown-menu').toggle('showOrHide');
 
+					  });
+				  "; 
+	   }
 	 $html .="<form name='$form_id' enctype='".$this->enc."' method='post' id='$form_id' class='nc_form".(!$inside_admin ? " ".$this->css_class_form : null )."' action='".$SUB_FOLDER.$HTTP_ROOT_PATH.$this->filename.".php'>
      <div id='nc_moderate_form'>
 	 <div class='nc_clear'></div>
@@ -233,33 +259,7 @@ class adwt_Form extends adwt_Core{
 		   $field_wrapper_begin = "<div class=\"".$this->css_class_right_col."\">";
 		   $field_wrapper_end = "</div>";
 	   }
-	   	$this->jscript[] = "
-			     jQuery('ul.dropdown-menu.adwt a').click(function(){
-					 var obj_parent_input_group =  jQuery(this).parents('div.input-group'); 
-					 obj_parent_input_group.children('input.form-control').val((jQuery(this).attr('title') ? jQuery(this).attr('title') : jQuery(this).html()));
-					 jQuery(this).parents('ul.dropdown-menu').hide('fast');
-				  });
-			  
-			  ";
-			  
-	    if($inside_admin){
-				  $this->css[] = "
-				  form.nc_form  .input-group{ white-space: nowrap !important; position:relative; }
-				  form.nc_form  .input-group ul.dropdown-menu{ z-index:999; width:auto; height: auto; overflow-y: scroll; border: solid 1px #dadada; display:none; position:absolute; left:0px; top: 35px; background:#fff; margin:0;padding:10px 0; }
-                  form.nc_form  .input-group ul.dropdown-menu li{ display:block; margin:0; padding: 5px 20px;}
-				  form.nc_form  .input-group-btn{ display:inline; width:25px;}
-				  form.nc_form  /*.input-group*/ input.form-control{ width:90% !important; } 
-				  "; 
-				  $this->jscript[] = "
-				  jQuery('button.dropdown-toggle').unbind('click');
-				  jQuery('button.dropdown-toggle').click(function(){
-					     var obj_parent_input_group = jQuery(this).parent('div.input-group-btn');
-						
-						 obj_parent_input_group.children('ul.dropdown-menu').toggle('showOrHide');
-
-					  });
-				  "; 
-		}
+	   
 	   
 	   switch($type){
 		   case 'string':
